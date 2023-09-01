@@ -21,26 +21,43 @@
                     </thead>
                     <?php
 
-                        $conn = mysqli_connect('db', 'root', 'test', "dbname");
+                        include 'conexion.php';
 
                         $query = 'SELECT * From Person';
-                        $result = mysqli_query($conn, $query);
+                        $result = mysqli_query($conexion, $query);
 
                         while($value = $result->fetch_array(MYSQLI_ASSOC)){
                             echo '<tr>';
                             echo '<td><a href="#"><span class="glyphicon glyphicon-search"></span></a></td>';
                             foreach($value as $element){
-                                echo '<td>' . $element . '</td>';
+                                $porcion = explode(" ", $element);
+                                foreach($porcion as $elemento){
+                                    echo '<td>' . $elemento . '</td>';
+                                }
                             }
 
                             echo '</tr>';
                         }
 
                         $result->close();
-                        mysqli_close($conn);
+                        mysqli_close($conexion);
                     ?>
                     </table>
             </div>
+        
+            <form method="POST" action="registro.php">
+                <div class="mb-3" >
+                    <label for="exampleInputEmail1" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Apellido</label>
+                    <input type="text" class="form-control" name="apellido">
+                </div>
+
+                <button type="submit" class="btn btn-primary" name="enviar">Enviar</button>
+            </form>
+
         </div>
     </body>
 </html>
