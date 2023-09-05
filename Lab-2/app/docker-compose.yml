@@ -1,9 +1,43 @@
 version: '3'
 services:
+  # Servicio PHP
+  php:
+    image: php:7.4-fpm
+    volumes:
+      - ./php:/var/www/html
+    ports:
+      - "9000:9000"
+
+  # Servicio MySQL
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: tu_password_root
+      MYSQL_DATABASE: tu_base_de_datos
+      MYSQL_USER: tu_usuario
+      MYSQL_PASSWORD: tu_password
+    volumes:
+      - ./mysql:/var/lib/mysql
+
+  # Servicio Nginx
   nginx:
     image: nginx:latest
-    container_name: lab2
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - ./php:/var/www/html
+    depends_on:
+      - php
+      - mysql
+
+  # Servicio PHPMyAdmin
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
     ports:
       - "8080:80"
-    volumes:
-      - ./www:/usr/share/nginx/html:ro
+    depends_on:
+      - mysql
