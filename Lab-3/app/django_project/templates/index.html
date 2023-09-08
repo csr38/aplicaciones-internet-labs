@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+        <title>Aplicaciones de Internet</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}' type="text/css" />
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    </head>
+<body>
+    <div class="container">
+        <div class="row">
+            <img src="{% static 'images/userena.svg' %}" class="rounded" style="width:200px"/>
+            <h1>Aplicaciones de Internet</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Asignaturas</h2>
+    </div>
+
+    <div class="container">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Codigo</th>
+                <th scope="col">Alumnos</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>3</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Larry the Bird</td>
+                <td></td>
+                <td>3</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+
+    <div class="container">
+        <a type="button" class="btn btn-primary btn-lg" href="{% url 'asignatura' %}">Modificar Asignatura</a>
+    </div>
+</body>
+</html>

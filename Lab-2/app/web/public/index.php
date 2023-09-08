@@ -19,11 +19,27 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr data-id="1">
-                        <td>1</td>
-                        <td>Daniel</td>
-                        <td>Ortiz</td>
-                    </tr>
+                <?php
+                    include 'conexion.php';
+
+                    $query = 'SELECT * From Person';
+                    $result = mysqli_query($conexion, $query);
+
+                    while($value = $result->fetch_array(MYSQLI_ASSOC)){
+                        echo '<tr>';
+                        foreach($value as $element){
+                            $porcion = explode(" ", $element);
+                            foreach($porcion as $elemento){
+                                echo '<td>' . $elemento . '</td>';
+                            }
+                        }
+
+                        echo '</tr>';
+                    }
+
+                    $result->close();
+                    mysqli_close($conexion);
+                    ?>
                 </tbody>
             </table>
         </div>

@@ -11,8 +11,11 @@ function agregarUsuario() {
         var tabla = document.getElementById("tabla-usuarios").getElementsByTagName('tbody')[0];
         var newRow = tabla.insertRow(tabla.rows.length);
 
+        // Obtiene el número de filas en la tabla
+        var numOfElements = document.getElementsByTagName('tr').length;
+
         // Asigna un nuevo ID único a la fila
-        newRow.setAttribute("data-id", idContador);
+        newRow.setAttribute("data-id", numOfElements-1);
 
         // Crea las celdas de la fila
         var cellId = newRow.insertCell(0);
@@ -20,7 +23,7 @@ function agregarUsuario() {
         var cellApellido = newRow.insertCell(2);
 
         // Llena las celdas con datos
-        cellId.innerHTML = idContador;
+        cellId.innerHTML = numOfElements-1;
         cellNombre.innerHTML = nombre;
         cellApellido.innerHTML = apellido;
 

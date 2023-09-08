@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+        <title>Aplicaciones de Internet</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}' type="text/css" />
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    </head>
+<body>
+    <div class="container">
+        <div class="row">
+            <img src="{% static 'images/userena.svg' %}" class="rounded" style="width:200px"/>
+            <h1>Agregar Asignatura</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Codigo</th>
+                <th scope="col">Alumnos</th>
+                <th scope="col">Eliminar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td><button type="button" class="btn btn-success">Editar</button></td>
+                <td><button type="button" class="btn btn-danger">Eliminar</button></td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td><button type="button" class="btn btn-success">Editar</button></td>
+                <td><button type="button" class="btn btn-danger">Eliminar</button></td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Larry the Bird</td>
+                <td></td>
+                <td><button type="button" class="btn btn-success">Editar</button></td>
+                <td><button type="button" class="btn btn-danger">Eliminar</button></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+
+    <div class="container">
+        <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Nombre de asignatura</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Codigo</label>
+              <input type="number" class="form-control" id="exampleInputPassword1">
+            </div>
+            <button type="submit" class="btn btn-primary">Crear</button>
+          </form>
+    </div>
+</body>
+</html>
