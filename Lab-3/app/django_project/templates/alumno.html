@@ -30,56 +30,27 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td><button type="button" class="btn btn-success">Editar</button></td>
-                <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-              </tr>
+                {% for alumno in alumnos %}
               <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td><button type="button" class="btn btn-success">Editar</button></td>
-                <td><button type="button" class="btn btn-danger">Eliminar</button></td>
+                  <th scope="row">{{ alumno.id }}</th>
+                  <td>{{ alumno.nombre }}</td>
+                  <td>{{ alumno.apellido_paterno }}</td>
+                  <td>{{ alumno.apellido_materno }}</td>
+                  <td>{{ alumno.fecha_nacimiento }}</td>
+                  <td><button type="button" class="btn btn-success">Editar</button></td>
+                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
               </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry the Bird</td>
-                <td></td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td><button type="button" class="btn btn-success">Editar</button></td>
-                <td><button type="button" class="btn btn-danger">Eliminar</button></td>
-              </tr>
+              {% endfor %}
             </tbody>
           </table>
     </div>
 
     <div class="container">
-        <form>
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Nombre de Alumno</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Apellido Paterno</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-              </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Apellido Materno</label>
-                <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Fecha de Nacimiento</label>
-                <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            </div>
-            <button type="submit" class="btn btn-primary">Crear</button>
-          </form>
+      <form method="post" action="{% url 'alumno' %}">
+        {% csrf_token %}  
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Crear</button>
+    </form>
     </div>
 </body>
 </html>
