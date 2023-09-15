@@ -16,7 +16,7 @@
     </div>
 
     <div class="container">
-        <table class="table">
+        <table class="table table-striped">
             <thead>
               <tr>
                 <th scope="col">ID</th>
@@ -32,8 +32,8 @@
                   <th scope="row">{{ asignatura.id }}</th>
                   <td>{{ asignatura.nombre }}</td>
                   <td>{{ asignatura.codigo }}</td>
-                  <td><button type="button" class="btn btn-success">Editar</button></td>
-                  <td><button type="button" class="btn btn-danger">Eliminar</button></td>
+                  <td><a href="edicionAsignatura/{{asignatura.id}}" class="btn btn-success">Editar</a></td>
+                  <td><a href="eliminarAsignatura/{{asignatura.id}}" class="btn btn-danger">Eliminar</a></td>
               </tr>
               {% endfor %}
           </tbody>
@@ -42,10 +42,17 @@
 
     <div class="container">
       <h1>Agregar Asignatura</h1>
-      <form method="post" action="{% url 'asignatura' %}">
-          {% csrf_token %}  
-          {{ form.as_p }}
-          <button type="submit" class="btn btn-primary">Crear</button>
+      <form method="POST" action="/registrarAsignatura">
+        {% csrf_token %}
+        <div class="form-group">
+          <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
+        </div>
+        <div class="form-group">
+          <input type="number" class="form-control" id="codigo" name="codigo" placeholder="Codigo" required>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Agregar</button>
+        </div>
       </form>
   </div>
   
