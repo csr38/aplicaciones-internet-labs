@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{%block title%}
+    Resultados
+{%endblock%}
+
+{% block main%}
+    {% load static %}
+    <div class="container">
+        <div class="row">
+            {% for movie in results%}
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://image.tmdb.org/t/p/original/{{movie.poster}}" class="card-img-top" alt="{{movie.name}}">
+                        <div class="card-body">
+                          <h5 class="card-title">{{movie.name}}</h5>
+                          <p class="card-text crop-text-4">{{movie.descripcion}}</p>
+                        </div>
+                      </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock%}
