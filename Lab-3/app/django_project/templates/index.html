@@ -26,7 +26,6 @@
               <th scope="col">ID</th>
               <th scope="col">Nombre</th>
               <th scope="col">Codigo</th>
-              <th scope="col">Alumnos</th>
               <th scope="col">Eliminar</th>
             </tr>
           </thead>
@@ -36,7 +35,7 @@
                 <th scope="row">{{ asignatura.id }}</th>
                 <td>{{ asignatura.nombre }}</td>
                 <td>{{ asignatura.codigo }}</td>
-                <td><button type="button" class="btn btn-success">Editar</button></td>
+
                 <td><button type="button" class="btn btn-danger">Eliminar</button></td>
             </tr>
             {% endfor %}
@@ -47,6 +46,7 @@
 
     <div class="container">
         <a type="button" class="btn btn-primary btn-lg" href="{% url 'asignatura' %}">Modificar Asignatura</a>
+<a type="button" class="btn btn-primary btn-lg" href="{% url 'alumno' %}">Modificar Alumno</a>
     </div>
 </body>
 </html>
